@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content = "IE=edge">
+    <link rel="stylesheet" href="./static/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <meta name = "viewport" content="width=device-width, initial-scale = 1.0">
+</head>
+<body class="background">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <h1 class="text-center title">
+                    Poisonous Mushroom prediction
+                </h1>
+            </div>
+            <div class="col">
+                <img src="/static/classic_mushroom.jpg" alt="Mushroom" width=100% height=100% title="Mushroom"/>
+            </div>
+        </div>
+        <form action="{{url_for('treatment')}}" method="POST" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row justify-content-around margin_1">
+                        <div class="col-md-6">
+                            <p class="p2">
+                                Diametre du chapeau [cm]
+                            </p>
+                        </div>
+                        <div class="col" style="text-align:center">
+                            <input type="text" size="8" placeholder="0" minlength="1" class="area_input" name="cap-diameter" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row justify-content-around margin_1">
+                        <div class="col-md-4">
+                            <p class="p2">
+                                Forme du chapeau
+                            </p>
+                        </div>
+                        <div class="col radio_text" style="text-align:center">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input type="radio" value="membraneux" class="radio_text" name="cap-shape" />
+                                    membraneux
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="obconique" class="radio_text" name="cap-shape" />
+                                    obconique
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="turbune" class="radio_text" name="cap-shape" />
+                                    turbune
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="cornucopie" class="radio_text" name="cap-shape" />
+                                    cornucopie
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="infundibuliforme" class="radio_text" name="cap-shape" />
+                                    infundibuliforme
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="campanule" class="radio_text" name="cap-shape" />
+                                    campanule
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="conique" class="radio_text" name="cap-shape" />
+                                    conique
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="convexe" class="radio_text" name="cap-shape" />
+                                    convexe
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="deprime" class="radio_text" name="cap-shape" />
+                                    deprime
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="plat" class="radio_text" name="cap-shape" />
+                                    plat
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="gibbeux" class="radio_text" name="cap-shape" />
+                                    gibbeux
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="ogival" class="radio_text" name="cap-shape" />
+                                    ogival
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="excentre" class="radio_text" name="cap-shape" />
+                                    excentre
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="ovale" class="radio_text" name="cap-shape" />
+                                    ovale
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="ombilique" class="radio_text" name="cap-shape" />
+                                    ombilique
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="umbone" class="radio_text" name="cap-shape" />
+                                    umbone
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="papille" class="radio_text" name="cap-shape" />
+                                    papille
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="flabelliforme" class="radio_text" name="cap-shape" />
+                                    flabelliforme
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="petaloide" class="radio_text" name="cap-shape" />
+                                    petaloide
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="pulvine" class="radio_text" name="cap-shape" />
+                                    pulvine
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="cylindrique" class="radio_text" name="cap-shape" />
+                                    cylindrique
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="coalescents" class="radio_text" name="cap-shape" />
+                                    coalescents
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="autre" class="radio_text" name="cap-shape" />
+                                    autre
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="/static/cap_shape_mushroom.jpg" alt="Cap_shape" width=100% height=100% title="Cap_shape"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row justify-content-around margin_1">
+                        <div class="col-md-4">
+                            <p class="p2">
+                                Couleur majoritaire du chapeau
+                            </p>
+                        </div>
+                        <div class="col radio_text" style="text-align:center">
+                            <div class="row">
+                                <div class="col-md-3" style="color:rgb(102,51,0">
+                                    <input type="radio" value="brun" class="radio_text" name="cap-color" />
+                                    brun
+                                </div>
+                                <div class="col-md-3" style="color:rgb(255,153,51">
+                                    <input type="radio" value="orange" class="radio_text" name="cap-color" />
+                                    orange
+                                </div>
+                                <div class="col-md-3" style="color:rgb(0,0,0">
+                                    <input type="radio" value="noir" class="radio_text" name="cap-color" />
+                                    noir
+                                </div>
+                                <div class="col-md-3" style="color:rgb(1,235,1">
+                                    <input type="radio" value="vert" class="radio_text" name="cap-color" />
+                                    vert
+                                </div>
+                                <div class="col-md-3" style="color:rgb(255,255,255">
+                                    <input type="radio" value="blanc" class="radio_text" name="cap-color" />
+                                    blanc
+                                </div>
+                                <div class="col-md-3" style="color:rgb(0,0,120">
+                                    <input type="radio" value="bleu fonce" class="radio_text" name="cap-color" />
+                                    bleu fonce
+                                </div>
+                                <div class="col-md-3" style="color:rgb(1,215,88">
+                                    <input type="radio" value="emeraude" class="radio_text" name="cap-color" />
+                                    emeraude
+                                </div>
+                                <div class="col-md-3" style="color:rgb(255,255,51">
+                                    <input type="radio" value="jaune" class="radio_text" name="cap-color" />
+                                    jaune
+                                </div>
+                                <div class="col-md-3" style="color:rgb(255,0,0">
+                                    <input type="radio" value="rouge" class="radio_text" name="cap-color" />
+                                    rouge
+                                </div>
+                                <div class="col-md-3" style="color:rgb(255,102,255">
+                                    <input type="radio" value="rose" class="radio_text" name="cap-color" />
+                                    rose
+                                </div>
+                                <div class="col-md-3" style="color:rgb(148,129,43">
+                                    <input type="radio" value="kaki" class="radio_text" name="cap-color" />
+                                    kaki
+                                </div>
+                                <div class="col-md-3" style="color:rgb(230,230,250">
+                                    <input type="radio" value="lavande" class="radio_text" name="cap-color" />
+                                    lavande
+                                </div>
+                                <div class="col-md-3" style="color:rgb(255,0,255">
+                                    <input type="radio" value="fuchsia" class="radio_text" name="cap-color" />
+                                    fuchsia
+                                </div>
+                                <div class="col-md-3" style="color:rgb(110,75,38">
+                                    <input type="radio" value="dallas" class="radio_text" name="cap-color" />
+                                    dallas
+                                </div>
+                                <div class="col-md-3" style="color:rgb(75,0,130">
+                                    <input type="radio" value="indigo" class="radio_text" name="cap-color" />
+                                    indigo
+                                </div>
+                                <div class="col-md-3" style="color:rgb(255,215,0">
+                                    <input type="radio" value="or" class="radio_text" name="cap-color" />
+                                    or
+                                </div>
+                                <div class="col-md-3" style="color:rgb(250,128,114">
+                                    <input type="radio" value="saumon" class="radio_text" name="cap-color" />
+                                    saumon
+                                </div>
+                                <div class="col-md-3" style="color:rgb(255,191,0">
+                                    <input type="radio" value="ambre" class="radio_text" name="cap-color" />
+                                    ambre
+                                </div>
+                                <div class="col-md-3" style="color:rgb(64,224,208">
+                                    <input type="radio" value="turquoise" class="radio_text" name="cap-color" />
+                                    turquoise
+                                </div>
+                                <div class="col-md-3" style="color:rgb(0,0,255">
+                                    <input type="radio" value="bleu" class="radio_text" name="cap-color" />
+                                    bleu
+                                </div>
+                                <div class="col-md-3" style="color:rgb(153,0,153">
+                                    <input type="radio" value="violet" class="radio_text" name="cap-color" />
+                                    violet
+                                </div>
+                                <div class="col-md-3" style="color:rgb(160,160,160">
+                                    <input type="radio" value="gris" class="radio_text" name="cap-color" />
+                                    gris
+                                </div>
+                                <div class="col-md-3" style="color:rgb(102,51,0">
+                                    <input type="radio" value="chocolat" class="radio_text" name="cap-color" />
+                                    chocolat
+                                </div>
+                                <div class="col-md-3" style="color:rgb(0,0,0">
+                                    <input type="radio" value="autre" class="radio_text" name="cap-color" />
+                                    autre
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="line_2"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row justify-content-around margin_1">
+                        <div class="col-md-4">
+                            <p class="p2">
+                                Consistance du champignon
+                            </p>
+                        </div>
+                        <div class="col radio_text" style="text-align:center">
+                            <div class="row">
+                                <div class="col-md">
+                                    <input type="radio" value="1" class="radio_text" name="does-bruise-or-bleed" />
+                                    Visqueux
+                                </div>
+                                <div class="col-md">
+                                    <input type="radio" value="0" class="radio_text" name="does-bruise-or-bleed" />
+                                    Fluide
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="line_2"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row justify-content-around margin_1">
+                        <div class="col-md-4">
+                            <p class="p2">
+                                Couleur sous le chapeau
+                            </p>
+                        </div>
+                        <div class="col radio_text" style="text-align:center">
+                            <div class="row">
+                                <div class="col-md-3" style="color:rgb(102,51,0">
+                                    <input type="radio" value="brun" class="radio_text" name="gill-color" />
+                                    brun
+                                </div>
+                                <div class="col-md-3" style="color:rgb(255,153,51">
+                                    <input type="radio" value="orange" class="radio_text" name="gill-color" />
+                                    orange
+                                </div>
+                                <div class="col-md-3" style="color:rgb(0,0,0">
+                                    <input type="radio" value="noir" class="radio_text" name="gill-color" />
+                                    noir
+                                </div>
+                                <div class="col-md-3" style="color:rgb(1,235,1">
+                                    <input type="radio" value="vert" class="radio_text" name="gill-color" />
+                                    vert
+                                </div>
+                                <div class="col-md-3" style="color:rgb(255,255,255">
+                                    <input type="radio" value="blanc" class="radio_text" name="gill-color" />
+                                    blanc
+                                </div>
+                                <div class="col-md-3" style="color:rgb(0,0,120">
+                                    <input type="radio" value="bleu fonce" class="radio_text" name="gill-color" />
+                                    bleu fonce
+                                </div>
+                                <div class="col-md-3" style="color:rgb(1,215,88">
+                                    <input type="radio" value="emeraude" class="radio_text" name="gill-color" />
+                                    emeraude
+                                </div>
+                                <div class="col-md-3" style="color:rgb(255,255,51">
+                                    <input type="radio" value="jaune" class="radio_text" name="gill-color" />
+                                    jaune
+                                </div>
+                                <div class="col-md-3" style="color:rgb(255,0,0">
+                                    <input type="radio" value="rouge" class="radio_text" name="gill-color" />
+                                    rouge
+                                </div>
+                                <div class="col-md-3" style="color:rgb(255,102,255">
+                                    <input type="radio" value="rose" class="radio_text" name="gill-color" />
+                                    rose
+                                </div>
+                                <div class="col-md-3" style="color:rgb(148,129,43">
+                                    <input type="radio" value="kaki" class="radio_text" name="gill-color" />
+                                    kaki
+                                </div>
+                                <div class="col-md-3" style="color:rgb(230,230,250">
+                                    <input type="radio" value="lavande" class="radio_text" name="gill-color" />
+                                    lavande
+                                </div>
+                                <div class="col-md-3" style="color:rgb(255,0,255">
+                                    <input type="radio" value="fuchsia" class="radio_text" name="gill-color" />
+                                    fuchsia
+                                </div>
+                                <div class="col-md-3" style="color:rgb(110,75,38">
+                                    <input type="radio" value="dallas" class="radio_text" name="gill-color" />
+                                    dallas
+                                </div>
+                                <div class="col-md-3" style="color:rgb(75,0,130">
+                                    <input type="radio" value="indigo" class="radio_text" name="gill-color" />
+                                    indigo
+                                </div>
+                                <div class="col-md-3" style="color:rgb(255,215,0">
+                                    <input type="radio" value="or" class="radio_text" name="gill-color" />
+                                    or
+                                </div>
+                                <div class="col-md-3" style="color:rgb(250,128,114">
+                                    <input type="radio" value="saumon" class="radio_text" name="gill-color" />
+                                    saumon
+                                </div>
+                                <div class="col-md-3" style="color:rgb(255,191,0">
+                                    <input type="radio" value="ambre" class="radio_text" name="gill-color" />
+                                    ambre
+                                </div>
+                                <div class="col-md-3" style="color:rgb(64,224,208">
+                                    <input type="radio" value="turquoise" class="radio_text" name="gill-color" />
+                                    turquoise
+                                </div>
+                                <div class="col-md-3" style="color:rgb(0,0,255">
+                                    <input type="radio" value="bleu" class="radio_text" name="gill-color" />
+                                    bleu
+                                </div>
+                                <div class="col-md-3" style="color:rgb(153,0,153">
+                                    <input type="radio" value="violet" class="radio_text" name="gill-color" />
+                                    violet
+                                </div>
+                                <div class="col-md-3" style="color:rgb(160,160,160">
+                                    <input type="radio" value="gris" class="radio_text" name="gill-color" />
+                                    gris
+                                </div>
+                                <div class="col-md-3" style="color:rgb(102,51,0">
+                                    <input type="radio" value="chocolat" class="radio_text" name="gill-color" />
+                                    chocolat
+                                </div>
+                                <div class="col-md-3" style="color:rgb(0,0,0">
+                                    <input type="radio" value="autre" class="radio_text" name="gill-color" />
+                                    autre
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="/static/gill_mushroom.jpg" alt="gill" width=100% height=100% title="gill_mushroom"/>
+                </div>
+                <div class="col-md-9">
+                    <div class="line_2"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row justify-content-around margin_1">
+                        <div class="col-md-6">
+                            <p class="p2">
+                                Hauteur de la tige [cm]
+                            </p>
+                        </div>
+                        <div class="col" style="text-align:center">
+                            <input type="text" size="8" placeholder="0" minlength="1" class="area_input" name="stem-height" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row justify-content-around margin_1">
+                        <div class="col-md-6">
+                            <p class="p2">
+                                Largeur de la tige [mm]
+                            </p>
+                        </div>
+                        <div class="col" style="text-align:center">
+                            <input type="text" size="8" placeholder="0" minlength="1" class="area_input" name="stem-width" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row justify-content-around margin_1">
+                        <div class="col-md-4">
+                            <p class="p2">
+                                Couleur de la tige
+                            </p>
+                        </div>
+                        <div class="col radio_text" style="text-align:center">
+                            <div class="row">
+                                <div class="col-md-3" style="color:rgb(102,51,0">
+                                    <input type="radio" value="brun" class="radio_text" name="stem-color" />
+                                    brun
+                                </div>
+                                <div class="col-md-3" style="color:rgb(255,153,51">
+                                    <input type="radio" value="orange" class="radio_text" name="stem-color" />
+                                    orange
+                                </div>
+                                <div class="col-md-3" style="color:rgb(0,0,0">
+                                    <input type="radio" value="noir" class="radio_text" name="stem-color" />
+                                    noir
+                                </div>
+                                <div class="col-md-3" style="color:rgb(1,235,1">
+                                    <input type="radio" value="vert" class="radio_text" name="stem-color" />
+                                    vert
+                                </div>
+                                <div class="col-md-3" style="color:rgb(255,255,255">
+                                    <input type="radio" value="blanc" class="radio_text" name="stem-color" />
+                                    blanc
+                                </div>
+                                <div class="col-md-3" style="color:rgb(0,0,120">
+                                    <input type="radio" value="bleu fonce" class="radio_text" name="stem-color" />
+                                    bleu fonce
+                                </div>
+                                <div class="col-md-3" style="color:rgb(1,215,88">
+                                    <input type="radio" value="emeraude" class="radio_text" name="stem-color" />
+                                    emeraude
+                                </div>
+                                <div class="col-md-3" style="color:rgb(255,255,51">
+                                    <input type="radio" value="jaune" class="radio_text" name="stem-color" />
+                                    jaune
+                                </div>
+                                <div class="col-md-3" style="color:rgb(255,0,0">
+                                    <input type="radio" value="rouge" class="radio_text" name="stem-color" />
+                                    rouge
+                                </div>
+                                <div class="col-md-3" style="color:rgb(255,102,255">
+                                    <input type="radio" value="rose" class="radio_text" name="stem-color" />
+                                    rose
+                                </div>
+                                <div class="col-md-3" style="color:rgb(148,129,43">
+                                    <input type="radio" value="kaki" class="radio_text" name="stem-color" />
+                                    kaki
+                                </div>
+                                <div class="col-md-3" style="color:rgb(230,230,250">
+                                    <input type="radio" value="lavande" class="radio_text" name="stem-color" />
+                                    lavande
+                                </div>
+                                <div class="col-md-3" style="color:rgb(255,0,255">
+                                    <input type="radio" value="fuchsia" class="radio_text" name="stem-color" />
+                                    fuchsia
+                                </div>
+                                <div class="col-md-3" style="color:rgb(110,75,38">
+                                    <input type="radio" value="dallas" class="radio_text" name="stem-color" />
+                                    dallas
+                                </div>
+                                <div class="col-md-3" style="color:rgb(75,0,130">
+                                    <input type="radio" value="indigo" class="radio_text" name="stem-color" />
+                                    indigo
+                                </div>
+                                <div class="col-md-3" style="color:rgb(255,215,0">
+                                    <input type="radio" value="or" class="radio_text" name="stem-color" />
+                                    or
+                                </div>
+                                <div class="col-md-3" style="color:rgb(250,128,114">
+                                    <input type="radio" value="saumon" class="radio_text" name="stem-color" />
+                                    saumon
+                                </div>
+                                <div class="col-md-3" style="color:rgb(255,191,0">
+                                    <input type="radio" value="ambre" class="radio_text" name="stem-color" />
+                                    ambre
+                                </div>
+                                <div class="col-md-3" style="color:rgb(64,224,208">
+                                    <input type="radio" value="turquoise" class="radio_text" name="stem-color" />
+                                    turquoise
+                                </div>
+                                <div class="col-md-3" style="color:rgb(0,0,255">
+                                    <input type="radio" value="bleu" class="radio_text" name="stem-color" />
+                                    bleu
+                                </div>
+                                <div class="col-md-3" style="color:rgb(153,0,153">
+                                    <input type="radio" value="violet" class="radio_text" name="stem-color" />
+                                    violet
+                                </div>
+                                <div class="col-md-3" style="color:rgb(160,160,160">
+                                    <input type="radio" value="gris" class="radio_text" name="stem-color" />
+                                    gris
+                                </div>
+                                <div class="col-md-3" style="color:rgb(102,51,0">
+                                    <input type="radio" value="chocolat" class="radio_text" name="stem-color" />
+                                    chocolat
+                                </div>
+                                <div class="col-md-3" style="color:rgb(0,0,0">
+                                    <input type="radio" value="autre" class="radio_text" name="stem-color" />
+                                    autre
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="line_2"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row justify-content-around margin_1">
+                        <div class="col-md-4">
+                            <p class="p2">
+                                Presence d'anneaux ?
+                            </p>
+                        </div>
+                        <div class="col radio_text" style="text-align:center">
+                            <div class="row">
+                                <div class="col-md">
+                                    <input type="radio" value="1" class="radio_text" name="has-ring" />
+                                    Oui
+                                </div>
+                                <div class="col-md">
+                                    <input type="radio" value="0" class="radio_text" name="has-ring" />
+                                    Non
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row justify-content-around margin_1">
+                        <div class="col-md-4">
+                            <p class="p2">
+                                Forme des anneaux
+                            </p>
+                        </div>
+                        <div class="col radio_text" style="text-align:center">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input type="radio" value="carre" class="radio_text" name="ring-type" />
+                                    carre
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="rectanglulaire" class="radio_text" name="ring-type" />
+                                    rectanglulaire
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="circulaire" class="radio_text" name="ring-type" />
+                                    circulaire
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="simple anneau" class="radio_text" name="ring-type" />
+                                    simple anneau
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="double anneau" class="radio_text" name="ring-type" />
+                                    double anneau
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="triple anneau" class="radio_text" name="ring-type" />
+                                    triple anneau
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="elliptique" class="radio_text" name="ring-type" />
+                                    elliptique
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="oval" class="radio_text" name="ring-type" />
+                                    oval
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="demi cercle" class="radio_text" name="ring-type" />
+                                    demi cercle
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="trapeze" class="radio_text" name="ring-type" />
+                                    trapeze
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="parallelogramme" class="radio_text" name="ring-type" />
+                                    parallelogramme
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="pentagone" class="radio_text" name="ring-type" />
+                                    pentagone
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="hexagone" class="radio_text" name="ring-type" />
+                                    hexagone
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="croix" class="radio_text" name="ring-type" />
+                                    croix
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="etoile" class="radio_text" name="ring-type" />
+                                    etoile
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="triangle" class="radio_text" name="ring-type" />
+                                    triangle
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="diamant" class="radio_text" name="ring-type" />
+                                    diamant
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="heptagone" class="radio_text" name="ring-type" />
+                                    heptagone
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="octogone" class="radio_text" name="ring-type" />
+                                    octogone
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="nuage" class="radio_text" name="ring-type" />
+                                    nuage
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="coeur" class="radio_text" name="ring-type" />
+                                    coeur
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="feuille" class="radio_text" name="ring-type" />
+                                    feuille
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="autre" class="radio_text" name="ring-type" />
+                                    autre
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="line_2"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row justify-content-around margin_1">
+                        <div class="col-md-4">
+                            <p class="p2">
+                                Localisation
+                            </p>
+                        </div>
+                        <div class="col radio_text" style="text-align:center">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input type="radio" value="marais" class="radio_text" name="habitat" />
+                                    marais
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="marecage" class="radio_text" name="habitat" />
+                                    marecage
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="tourbiere" class="radio_text" name="habitat" />
+                                    tourbiere
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="prairie" class="radio_text" name="habitat" />
+                                    prairie
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="plaine" class="radio_text" name="habitat" />
+                                    plaine
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="vallee" class="radio_text" name="habitat" />
+                                    vallee
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="ruisseau" class="radio_text" name="habitat" />
+                                    ruisseau
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="mangrove" class="radio_text" name="habitat" />
+                                    mangrove
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="montagne" class="radio_text" name="habitat" />
+                                    montagne
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="foret" class="radio_text" name="habitat" />
+                                    foret
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="jungle" class="radio_text" name="habitat" />
+                                    jungle
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="desert" class="radio_text" name="habitat" />
+                                    desert
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="savane" class="radio_text" name="habitat" />
+                                    savane
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="steppe" class="radio_text" name="habitat" />
+                                    steppe
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="toundra" class="radio_text" name="habitat" />
+                                    toundra
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="taiga" class="radio_text" name="habitat" />
+                                    taiga
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="ville" class="radio_text" name="habitat" />
+                                    ville
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="friche" class="radio_text" name="habitat" />
+                                    friche
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="sol pollue" class="radio_text" name="habitat" />
+                                    sol pollue
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="neige" class="radio_text" name="habitat" />
+                                    neige
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="grotte" class="radio_text" name="habitat" />
+                                    grotte
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="caverne" class="radio_text" name="habitat" />
+                                    caverne
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" value="autre" class="radio_text" name="habitat" />
+                                    autre
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row justify-content-around margin_1">
+                        <div class="col-md-4">
+                            <p class="p2">
+                                Saison de developpement
+                            </p>
+                        </div>
+                        <div class="col radio_text" style="text-align:center">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <input type="radio" value="printemps" class="radio_text" name="season" />
+                                    printemps
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="radio" value="ete" class="radio_text" name="season" />
+                                    ete
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="radio" value="automne" class="radio_text" name="season" />
+                                    automne
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="radio" value="hiver" class="radio_text" name="season" />
+                                    hiver
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="text-center div2">
+                    <button id="submit_button" name="action" class="btn btn-primary" value="Predict">
+                        Predict
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
