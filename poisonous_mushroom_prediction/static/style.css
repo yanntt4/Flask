@@ -1,0 +1,50 @@
+.title {
+    color: rgb(15, 64, 115); font: bold large serif;
+    font-size: 350%; font-weight: 1200; margin: 50px;
+}
+.background {
+    background-color: rgb(220, 220, 220)
+}
+.area_input {
+    font-family: "Inter", sans-serif; background-color: rgb(230, 230, 230);
+    font-size: calc(.6rem + .4vw); border: 1px solid;
+}
+.radio_text {
+    color: hsl(0, 0%, 60%); margin-top: 5px; letter-spacing: 3px;
+    text-transform: uppercase; font-size: 13px; font-weight: 700;
+}
+.div1 {
+    border: 2px solid;margin: 1px 1px 1px 1px;border-color: rgb(179, 204, 12);
+}
+.div2 {
+    margin: 30px;
+}
+.margin_1 {
+    margin: 25px 25px 25px 25px;
+}
+.p1 {
+    color: rgb(235, 98, 87); font-size: 140%; font-weight: 800;
+}
+.p2 {
+    color: rgb(120, 204, 80); font-size: 150%; font-weight: 800;
+}
+.line{
+    width: 750px; height: 1px; border-bottom: 1px solid black; margin: 10px;
+}
+.line_2{
+    width: 1000px; height: 1px; border-bottom: 1px solid black; margin: 10px;
+}
+
+.brown_button{
+    input[type="radio"] {
+        accent-color: rgb(105,51,0);}
+}
+
+
+
+button#submit_button:focus:before{
+    font-size:10px; font-family: "Font Awesome 5 Free"; font-style: normal;
+    font-variant-caps: normal; font-variant-ligatures: normal; font-weight: 900;
+    margin-right:5px; content: "110";-webkit-animation: spin 1s infinite; display:inline-block;
+}
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg);transform-origin:5px 5px } }
