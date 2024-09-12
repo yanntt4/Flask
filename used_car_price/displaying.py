@@ -177,7 +177,8 @@ def preparation():
             f.write(indent(doc.getvalue(), indentation = '    ', newline = '\n', indent_text = True))
             f.close()
     
-    
+
+    # Only used to create the javascript at the beginning. The file created must be modified
     def javascript_preparation_creation():
         
         JS_PREPARATION = ""
