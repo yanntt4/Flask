@@ -1,4 +1,2 @@
 # Flask
-This file is used to create a local flask server to create internet pages
-These small pages are used to show the possibilities of data analysis
-Dataset have been taken from Kaggle playground competitions
+This folder is used to store various projects including Flask server and mail analysis using Python
